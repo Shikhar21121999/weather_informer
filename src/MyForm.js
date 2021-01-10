@@ -1,5 +1,5 @@
 import React, {useState,useRef} from 'react'
-import {Form} from 'react-bootstrap'
+import {Form,Card} from 'react-bootstrap'
 export default function MyForm({Setsearchlocation,temp,region}) {
     const input_search = useRef();
     
@@ -22,8 +22,14 @@ export default function MyForm({Setsearchlocation,temp,region}) {
                 <Form.Control ref={input_search} type="input" placeholder="Enter the location" />
                 </Form.Group>
             </Form>
-            <div>{temp}</div>
-            <div>{region}</div>
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                    <Card.Title>Weather Info</Card.Title>
+                    <Card.Text>{temp}</Card.Text>
+                    <Card.Text>{region}</Card.Text>
+                </Card.Body>
+            </Card>
         </div>
     )
 }
