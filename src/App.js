@@ -15,7 +15,7 @@ export default function App() {
       method: 'GET',
       redirect: 'follow'
     };
-    var url="https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=d72c618a6ee745cb83e164815211001&q="
+    var url="https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=yourkey&q="
     url+=searchlocation;
 
     fetch(url, requestOptions)
