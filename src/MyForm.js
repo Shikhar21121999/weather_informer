@@ -1,5 +1,5 @@
-import React, {useState,useRef} from 'react'
-import {Form,Card} from 'react-bootstrap'
+import React, {useRef} from 'react'
+import {Form} from 'react-bootstrap'
 export default function MyForm({Setsearchlocation,temp,region}) {
     const input_search = useRef();
     
@@ -16,20 +16,12 @@ export default function MyForm({Setsearchlocation,temp,region}) {
 
 
     return (
-        <div className="d-flex" style={{ height: '100vh' }}>
+        <div >
             <Form onSubmit={handlesubmit}>
                 <Form.Group>
                 <Form.Control ref={input_search} type="input" placeholder="Enter the location" />
                 </Form.Group>
             </Form>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>Weather Info</Card.Title>
-                    <Card.Text>{temp}</Card.Text>
-                    <Card.Text>{region}</Card.Text>
-                </Card.Body>
-            </Card>
         </div>
     )
 }

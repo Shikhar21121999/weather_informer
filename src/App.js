@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from 'react'
-// import { Button,Card } from 'react-bootstrap';
+import {Container,Row,Card} from 'react-bootstrap'
+import './style.css'
+
 import MyForm from './MyForm';
 
 export default function App() {
@@ -31,8 +33,22 @@ export default function App() {
 
   return (
     <div>
-      <MyForm Setsearchlocation={Setsearchlocation} temp={temp} region={region}/>
-      <div></div>
+    <Container className="fixed-top">    
+      <Row>
+        <MyForm className="fixed-top centered" 
+          Setsearchlocation={Setsearchlocation} temp={temp} region={region}/>
+      </Row>
+    </Container>
+    <Card style={{
+        position: 'absolute', left: '50%', top: '50%',
+        transform: 'translate(-50%, -50%)'
+        }}>
+        <Card.Body>
+            <Card.Title>Weather Info</Card.Title>
+            <Card.Text>{temp}</Card.Text>
+            <Card.Text>{region}</Card.Text>
+        </Card.Body>
+      </Card>
     </div>
   )
 }
