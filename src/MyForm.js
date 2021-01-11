@@ -16,12 +16,8 @@ export default function MyForm({Setsearchlocation,temp,region}) {
 
 
     return (
-        <div >
-            <Form onSubmit={handlesubmit}>
-                <Form.Group>
-                <Form.Control ref={input_search} type="input" placeholder="Enter the location" />
-                </Form.Group>
-            </Form>
-        </div>
+        <form onSubmit={handlesubmit}>
+            <input type="text" class="form-control col-6" row="" ref={input_search} placeholder="Enter the location" />
+        </form>
     )
 }

@@ -1,5 +1,6 @@
 .custom-container {
-  margin-left: 0rem;
+  margin-left: 35rem;
+  justify-items: flex-start;
 }
 
 .centered {
