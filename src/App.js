@@ -8,7 +8,11 @@ export default function App() {
   const [searchlocation,Setsearchlocation] = useState("london")
   const [temp,setTemp] = useState(55)
   const [region,setregion] = useState("my area")
-
+  const [local_time,setlocaltime] = useState(new Date().toLocaleString())
+  const [curr_cndn,setcurr_cndn] = useState("Fair")
+  const [curr_humid,setcurr_humid] = useState(50)
+  const [curr_wind,setcurr_wind] = useState(10)
+  
   useEffect(() => {
     //we call the weather app api to get the data for current location
     
@@ -17,15 +21,20 @@ export default function App() {
       method: 'GET',
       redirect: 'follow'
     };
-    var url="https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=yourkey&q="
+    var url="https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=2f3992bbd9dc4491a71195103211201&q="
     url+=searchlocation;
 
     fetch(url, requestOptions)
       .then(response => response.json())
       .then((data) => {
-        console.log(data.current.temp_c);
+        
         setTemp(data.current.temp_c)
         setregion(data.location.region)
+        setlocaltime(data.location.localtime)
+        setcurr_cndn(data.current.condition.text)
+        setcurr_humid(data.current.humidity)
+        setcurr_wind(data.current.wind_mph)
+        
       })
       .catch(error => console.log('error', error));
   
@@ -33,28 +42,22 @@ export default function App() {
 
   return (
     <div>
-      <div className="custom-container">    
+      <div className="top-centered">    
           <MyForm className="fixed-top centered" 
             Setsearchlocation={Setsearchlocation} temp={temp} region={region}/>
       </div>
-      <div className="card">
-        <h5 className="card-header">header</h5>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+      <div class="container-sm custom-container">
+        <div className="row">{region}</div>
+        <div className="row">{local_time}</div>
+        <div className="row">{curr_cndn}</div>
+        <div className="row">
+          <div className="col">{temp}</div>
+          <div className="col">
+            <div className="row">{curr_humid}</div>
+            <div className="row">{curr_wind}</div>
+          </div>
         </div>
       </div>
-      <Card style={{
-          position: 'absolute', left: '50%', top: '50%',
-          transform: 'translate(-50%, -50%)'
-          }}>
-          <Card.Body>
-              <Card.Title>Weather Info</Card.Title>
-              <Card.Text>{temp}</Card.Text>
-              <Card.Text>{region}</Card.Text>
-          </Card.Body>
-      </Card>
     </div>
   )
 }

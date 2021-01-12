@@ -1,9 +1,9 @@
-.custom-container {
+.top-centered {
   margin-left: 35rem;
   justify-items: flex-start;
 }
 
-.centered {
-  margin-left: 0;
+.custom-container {
+  margin-top: 5rem;
   background-color: aqua;
 }
