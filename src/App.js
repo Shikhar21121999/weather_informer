@@ -21,7 +21,7 @@ export default function App() {
       method: 'GET',
       redirect: 'follow'
     };
-    var url="https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=2f3992bbd9dc4491a71195103211201&q="
+    var url="https://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?key=1d1f51db7c2e4baeb44144108211301="
     url+=searchlocation;
 
     fetch(url, requestOptions)
@@ -46,15 +46,15 @@ export default function App() {
           <MyForm className="fixed-top centered" 
             Setsearchlocation={Setsearchlocation} temp={temp} region={region}/>
       </div>
-      <div class="container-sm custom-container">
-        <div className="row">{region}</div>
-        <div className="row">{local_time}</div>
-        <div className="row">{curr_cndn}</div>
-        <div className="row">
+      <div class="container custom-container card">
+        <div className="row d-flex justify-content-left custom-font ">{region}</div>
+        <div className="row d-flex custom-font">{local_time}</div>
+        <div className="row d-flex custom-font">{curr_cndn}</div>
+        <div className="row d-flex custom-font">
           <div className="col">{temp}</div>
           <div className="col">
-            <div className="row">{curr_humid}</div>
-            <div className="row">{curr_wind}</div>
+            <div className="row d-flex justify-content-left custom-font ">{curr_humid}</div>
+            <div className="row d-flex custom-font ">{curr_wind}</div>
           </div>
         </div>
       </div>

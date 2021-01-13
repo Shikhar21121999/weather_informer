@@ -1,5 +1,6 @@
 import React, {useRef} from 'react'
 import {Form} from 'react-bootstrap'
+import './style.css'
 export default function MyForm({Setsearchlocation,temp,region}) {
     const input_search = useRef();
     
@@ -17,7 +18,7 @@ export default function MyForm({Setsearchlocation,temp,region}) {
 
     return (
         <form onSubmit={handlesubmit}>
-            <input type="text" class="form-control col-6" row="" ref={input_search} placeholder="Enter the location" />
+            <input type="text" class="custom-input col-6" row="" ref={input_search} placeholder="Enter the location" />
         </form>
     )
 }
